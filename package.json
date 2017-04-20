@@ -1,1 +1,39 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-bopper",     "homepage": "https://github.com/npmtest/node-npmtest-bopper",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-bopper.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  bopper (v2.11.0)  [![npm package](https://img.shields.io/npm/v/npmtest-bopper.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-bopper) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-bopper.svg)](https://travis-ci.org/npmtest/node-npmtest-bopper)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-bopper",
+    "keywords": [
+        "coverage",
+        "test",
+        "bopper"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_bopper.js",
+    "name": "npmtest-bopper",
+    "nameAlias": "npmtest_bopper",
+    "nameOriginal": "npmtest-bopper",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-bopper.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
